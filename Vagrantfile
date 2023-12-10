@@ -90,7 +90,7 @@ Vagrant.configure("2") do |config|
                 yum install -y zfs
                 modprobe zfs
                 yum install -y wget
-                wget -P /home/vagrant/ https://raw.githubusercontent.com/olegizt/DZ4/main/dz_zfs.sh
+                wget -P /home/vagrant/ https://raw.githubusercontent.com/olegizt/DZ5_ZFS/main/dz_zfs.sh
                 chmod +x /home/vagrant/dz_zfs.sh
             SHELL
         end
