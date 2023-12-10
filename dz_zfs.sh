@@ -27,7 +27,7 @@ sudo zfs get all | grep compression
 printf "\n\e[0;37;42m --- Скачаем один и тот же текстовый файл во все пулы ---\e[0m\n"
 for i in {1..4}; do sudo wget -P /oleg$i https://gutenberg.org/cache/epub/2600/pg2600.converter.log; done
 
-printf "\n\e[0;37;42mПроверим, что файл был скачан во все пулы ---\e[0m\n"
+printf "\n\e[0;37;42m --- Проверим, что файл был скачан во все пулы ---\e[0m\n"
 sudo ls -l /oleg*
 
 printf "\n\e[0;37;42m --- Проверим, сколько места занимает один и тот же файл в разных пулах ---\e[0m\n"
@@ -66,12 +66,12 @@ printf "\n\e[0;37;42m --- ... тип контрольной суммы ---\e[0m\
 sudo zfs get checksum otus
 
 printf "\n\e[0;37;42m --- Скачаем файл снэпшота указанный в задании ---\e[0m\n"
-wget -O otus_task2.file --no-check-certificate https://drive.usercontent.google.com/download?id=1wgxjih8YZ-cqLqaZVa0lA3h3Y029c3oI&export=download
+wget -O otus_task2.file --no-check-certificate 'https://drive.usercontent.google.com/download?id=1wgxjih8YZ-cqLqaZVa0lA3h3Y029c3oI&export=download'
 
-printf "\n\e[0;37;42m --- Восстановим файловую систему из снапшота в пул oleg ---\e[0m\n"
+printf "\n\e[0;37;42m --- Восстановим файловую систему из снапшота в пул otus ---\e[0m\n"
 sudo zfs receive otus/test@today < otus_task2.file
 
-printf "\n\e[0;37;42m --- Найдём в каталоге /oleg/test файл с именем secret_message ---\e[0m\n"
+printf "\n\e[0;37;42m --- Найдём в каталоге /otus/test файл с именем secret_message ---\e[0m\n"
 sudo find /otus/test -name "secret_message"
 
 printf "\n\e[0;37;42m --- Просмотрим содержимое найденного файла ---\e[0m\n"
