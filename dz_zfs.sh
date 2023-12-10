@@ -44,37 +44,37 @@ printf "\n\e[0;37;42m --- Проверим, возможно ли импорти
 sudo zpool import -d zpoolexport/
 
 printf "\n\e[0;37;42m --- Импортируем данный пула к нам в ОС и посмотрим статус ---\e[0m\n"
-sudo zpool import -d zpoolexport/ oleg
+sudo zpool import -d zpoolexport/ otus
 sudo zpool status
 
 printf "\n\e[0;37;42m --- Выведем все параметры импортированного пула ---\e[0m\n"
-sudo zfs get all oleg
+sudo zfs get all otus
 
 printf "\n\e[0;37;42m --- ... его размер ---\e[0m\n"
-sudo zfs get available oleg
+sudo zfs get available otus
 
 printf "\n\e[0;37;42m --- ... тип ---\e[0m\n"
-sudo zfs get readonly oleg
+sudo zfs get readonly otus
 
 printf "\n\e[0;37;42m --- ... значение recordsize ---\e[0m\n"
-sudo zfs get recordsize oleg
+sudo zfs get recordsize otus
 
 printf "\n\e[0;37;42m --- ... тип сжатия ---\e[0m\n"
-sudo zfs get compression oleg
+sudo zfs get compression otus
 
 printf "\n\e[0;37;42m --- ... тип контрольной суммы ---\e[0m\n"
-sudo zfs get checksum oleg
+sudo zfs get checksum otus
 
 printf "\n\e[0;37;42m --- Скачаем файл снэпшота указанный в задании ---\e[0m\n"
 wget -O otus_task2.file --no-check-certificate https://drive.usercontent.google.com/download?id=1wgxjih8YZ-cqLqaZVa0lA3h3Y029c3oI&export=download
 
 printf "\n\e[0;37;42m --- Восстановим файловую систему из снапшота в пул oleg ---\e[0m\n"
-sudo zfs receive oleg/test@today < otus_task2.file
+sudo zfs receive otus/test@today < otus_task2.file
 
 printf "\n\e[0;37;42m --- Найдём в каталоге /oleg/test файл с именем secret_message ---\e[0m\n"
-sudo find /oleg/test -name "secret_message"
+sudo find /otus/test -name "secret_message"
 
 printf "\n\e[0;37;42m --- Просмотрим содержимое найденного файла ---\e[0m\n"
-sudo cat /oleg/test/task1/file_mess/secret_message
+sudo cat /otus/test/task1/file_mess/secret_message
 
 printf "\n\e[0;37;41m --- Задание выполнено ---\e[0m\n"
