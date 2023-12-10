@@ -48,7 +48,7 @@ sudo zpool import -d zpoolexport/ oleg
 sudo zpool status
 
 printf "\n\e[0;37;42m --- Выведем все параметры импортированного пула ---\e[0m\n"
-sudo zfs get all otus
+sudo zfs get all oleg
 
 printf "\n\e[0;37;42m --- ... его размер ---\e[0m\n"
 sudo zfs get available oleg
